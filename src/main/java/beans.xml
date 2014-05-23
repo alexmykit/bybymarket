@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+   <bean id="helloBean" class="com.byby.market.demos.MessageBean" init-method="init" destroy-method="destroy">
+       <property name="message" value="Hello World!"/>
+   </bean>
+   
+   <bean id="byeBean" class="com.byby.market.demos.MessageBean" init-method="init" destroy-method="destroy">
+       <property name="message" value="Good bye world!!"/>
+   </bean>
+
+	<!-- <bean class="com.byby.market.demos.SampleBeanPostProcessor"/> -->
+	
+	<bean id="lockheed-m8" class="com.byby.market.demos.Engine">
+		<property name="model" value="lockheed-M8-V3"/>
+		<property name="price" value="1500.99" />
+		<property name="gasExpensePer100Miles" value="8.4"/>
+	</bean>
+	
+	<bean id="bmw-m8" class="com.byby.market.demos.Car">
+		<constructor-arg index="0" value="BMW-M8"/>
+		<constructor-arg index="1" value="65999"/>
+		<constructor-arg index="2" value="320"/>
+		<constructor-arg index="3" ref="lockheed-m8"/>
+	</bean>
+	
+</beans>
